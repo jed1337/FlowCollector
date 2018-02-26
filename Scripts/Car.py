@@ -10,7 +10,7 @@ class Car:
     def accelerate(self):
         self.speed += 5
 
-    def brake(self):w
+    def brake(self):
         self.speed -= 5
 
     def step(self):

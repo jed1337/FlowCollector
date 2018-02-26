@@ -1,4 +1,5 @@
-import Attribute as att
+import attribute as att
+import utils as utils
 
 from scapy.all import *
 from importlib import reload
@@ -57,7 +58,9 @@ def get_flows(packets, flow_type):
       else:
          print("IP inside")
 
+      orig_packet_time = packet.time
       packet_ip = packet['IP']
+      packet_ip.time = orig_packet_time
 
       src = packet_ip.src
       dst = packet_ip.dst
@@ -103,32 +106,11 @@ def uni_flow(flows, packet_ip, src, dst, sport, dport, proto):
    flows[key].append(packet_ip)
 
 
-# def get_bidirectional_flows_old(initIndex, flow_markers):
-#  for other_flow_marker in range(initIndex+1, len(flow_markers)):
-#
-#     if(other_flow_marker is not None):
-#        break #Since this packet's already been assigned a flow, move on to the next
-#
-#     pSameFlow = packets[other_flow_marker] #Check if this will cause the other parts to assign values
-#
-#     #Checks for same flow
-#     if(pSameFlow.proto == proto and
-#        any([
-#           all([pSameFlow.src == src, pSameFlow.sport == sport, pSameFlow.dst == dst, pSameFlow.dport == dport]),
-#           all([pSameFlow.dst == src, pSameFlow.dport == sport, pSameFlow.src == dst, pSameFlow.sport == dport])
-#        ])):
-#
-#        pSameFlow.setFlow(flowName)
-#
-#        isEndOfFlow = isEndOfFlow(pSameFlow)
-#        if isEndOfFlow == "End":
-#           break outer
-
 # def main():
-# packets = rdpcap("../SamplePcap/NormalWithTeardown.pcapng")
-packets = rdpcap("../SamplePcap/SYN.pcapng")
+packets = rdpcap("../SamplePcap/NormalWithTeardown.pcapng")
+# packets = rdpcap("../SamplePcap/SYN.pcapng")
 uni_flows = get_flows(packets, uni_flow)
 bi_flows = get_flows(packets, bi_flow)
 
-
+ps = bi_flows['172.16.15.3; 49622; -> 152.14.13.11; 80; 6']
 # main()
