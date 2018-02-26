@@ -1,6 +1,7 @@
 import utils
-from direction_holder import DirectionHolder
+import numpy as np
 
+from direction_holder import DirectionHolder
 from scapy.all import *
 
 IP = scapy.layers.inet.IP
@@ -112,17 +113,33 @@ def duration(packets):
    return end_time(packets) - start_time(packets)
 
 
-def get_packet_interarrival_times(packets):
+def _interarrival_times(packets):
+   """ Interarrival time = time between 2 packets """
+
    # packet index, we start at index 1 (i.e. the second item)
    # since the time[i] = packets[i] - packets[i-1]
    p_index = 1
 
    interarrival_times = []
    while p_index < len(packets):
-      interarrival_time = packets[p_index] - packets[p_index-1]
+      interarrival_time = packets[p_index].time - packets[p_index-1].time
       interarrival_times.append(interarrival_time)
 
+      p_index+=1
+
    return interarrival_times
+
+
+def max_interarrival_time(packets):
+   return max(_interarrival_times(packets))
+
+
+def min_interarrival_time(packets):
+   return min(_interarrival_times(packets))
+
+
+def std_interarrival_time(packets):
+   return np.std(_interarrival_times(packets))
 
 
 def _forward_direction(packet, dh):
