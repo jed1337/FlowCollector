@@ -1,12 +1,12 @@
 import utils
-import directions
+import Attributes.directions as dir
 import numpy as np
 
-from direction_holder import DirectionHolder
+from Attributes.direction_holder import DirectionHolder
 from scapy.all import *
 
 IP = scapy.layers.inet.IP
-TCP = scapy.layers.inet.TCP
+# TCP = scapy.layers.inet.TCP
 
 
 def src_ip(packets):
@@ -50,23 +50,10 @@ def _packets_in_direction(packets, direc_func):
    return direc_packets
 
 
-def _packet_count_in_direction(packets, direc_func):
-   dh = DirectionHolder(packets)
+def packet_count_in_direction(packets, direc_func):
+   direc_packets = _packets_in_direction(packets, direc_func)
 
-   direc_packet_count = 0
-   for packet in packets:
-      if direc_func(packet, dh):
-         direc_packet_count += 1
-
-   return direc_packet_count
-
-
-def packet_count_in_backward_direction(packets):
-   return _packet_count_in_direction(packets, directions.backward)
-
-
-def packet_count_in_forward_direction(packets):
-   return _packet_count_in_direction(packets, directions.forward)
+   return len(direc_packets)
 
 
 def total_bytes(packets):
@@ -89,27 +76,11 @@ def average_bytes_per_packet(packets):
    return float(total_bytes(packets)) / float(packet_count(packets))
 
 
-def _bytes_in_direction(packets, direc_func):
-   dh = DirectionHolder(packets)
+def bytes_in_direction(packets, direc_func):
+   direc_packets = _packets_in_direction(packets, direc_func)
 
-   direc_bytes = 0
-   for packet in packets:
-      if IP not in packet:
-         continue
+   return sum(map((lambda direc_packet: len(direc_packet)), direc_packets))
 
-      # if all([packet.src == src, packet.sport == sport, packet.dst == dst, packet.dport == dport]):
-      if direc_func(packet, dh):
-         direc_bytes += packet.len
-
-   return direc_bytes
-
-
-def bytes_in_forward_direction(packets):
-   return _bytes_in_direction(packets, directions.forward)
-
-
-def bytes_in_backward_direction(packets):
-   return _bytes_in_direction(packets, directions.backward)
 
 
 def start_time(packets):
@@ -142,8 +113,7 @@ def _interarrival_times(packets):
    return interarrival_times
 
 
-def _meta_interarrival_times(packets, reduce_func, direc_func):
-   """TODO Test"""
+def meta_interarrival_times(packets, reduce_func, direc_func):
    direc_packets = _packets_in_direction(packets, direc_func)
 
    # packet index, we start at index 1 (i.e. the second item)
@@ -158,15 +128,3 @@ def _meta_interarrival_times(packets, reduce_func, direc_func):
       dp_index+=1
 
    return reduce_func(interarrival_times)
-
-
-def max_interarrival_time(packets):
-   return max(_interarrival_times(packets))
-
-
-def min_interarrival_time(packets):
-   return min(_interarrival_times(packets))
-
-
-def std_interarrival_time(packets):
-   return np.std(_interarrival_times(packets))

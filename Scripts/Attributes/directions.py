@@ -14,3 +14,8 @@ def backward(packet, dh):
    :return: True if the packet belongs in the backward direction
    """
    return all([packet.src == dh.dst, packet.sport == dh.dport, packet.dst == dh.src, packet.dport == dh.sport])
+
+
+def bi_directional(packet, dh):
+   """:return: True since the packet belongs to either the forward or the backward direction"""
+   return True
