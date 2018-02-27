@@ -1,4 +1,5 @@
 import utils
+import directions
 import numpy as np
 
 from direction_holder import DirectionHolder
@@ -38,6 +39,17 @@ def packet_count(packets):
    return len(packets)
 
 
+def _packets_in_direction(packets, direc_func):
+   dh = DirectionHolder(packets)
+
+   direc_packets = []
+   for packet in packets:
+      if direc_func(packet, dh):
+         direc_packets.append(packet)
+
+   return direc_packets
+
+
 def _packet_count_in_direction(packets, direc_func):
    dh = DirectionHolder(packets)
 
@@ -50,11 +62,11 @@ def _packet_count_in_direction(packets, direc_func):
 
 
 def packet_count_in_backward_direction(packets):
-   return _packet_count_in_direction(packets, _backward_direction)
+   return _packet_count_in_direction(packets, directions.backward)
 
 
 def packet_count_in_forward_direction(packets):
-   return _packet_count_in_direction(packets, _forward_direction)
+   return _packet_count_in_direction(packets, directions.forward)
 
 
 def total_bytes(packets):
@@ -93,11 +105,11 @@ def _bytes_in_direction(packets, direc_func):
 
 
 def bytes_in_forward_direction(packets):
-   return _bytes_in_direction(packets, _forward_direction)
+   return _bytes_in_direction(packets, directions.forward)
 
 
 def bytes_in_backward_direction(packets):
-   return _bytes_in_direction(packets, _backward_direction)
+   return _bytes_in_direction(packets, directions.backward)
 
 
 def start_time(packets):
@@ -130,6 +142,24 @@ def _interarrival_times(packets):
    return interarrival_times
 
 
+def _meta_interarrival_times(packets, reduce_func, direc_func):
+   """TODO Test"""
+   direc_packets = _packets_in_direction(packets, direc_func)
+
+   # packet index, we start at index 1 (i.e. the second item)
+   # since the time[i] = packets[i] - packets[i-1]
+   dp_index = 1
+
+   interarrival_times = []
+   while dp_index < len(direc_packets):
+      interarrival_time = direc_packets[dp_index].time - direc_packets[dp_index-1].time
+      interarrival_times.append(interarrival_time)
+
+      dp_index+=1
+
+   return reduce_func(interarrival_times)
+
+
 def max_interarrival_time(packets):
    return max(_interarrival_times(packets))
 
@@ -140,21 +170,3 @@ def min_interarrival_time(packets):
 
 def std_interarrival_time(packets):
    return np.std(_interarrival_times(packets))
-
-
-def _forward_direction(packet, dh):
-   """
-   :param packet: The packet to compare to dh
-   :param dh: Direction Holder
-   :return: True if the packet belongs in the forward direction
-   """
-   return all([packet.src == dh.src, packet.sport == dh.sport, packet.dst == dh.dst, packet.dport == dh.dport])
-
-
-def _backward_direction(packet, dh):
-   """
-   :param packet: The packet to compare to dh
-   :param dh: Direction Holder
-   :return: True if the packet belongs in the backward direction
-   """
-   return all([packet.src == dh.dst, packet.sport == dh.dport, packet.dst == dh.src, packet.dport == dh.sport])
