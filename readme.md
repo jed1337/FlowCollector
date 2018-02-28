@@ -1,3 +1,4 @@
+# Flow Collector
 ## Information
 This tool is used to extract various flow-based features from pcap data. The tool cannot extract features while captures are ongoing.
 
@@ -51,11 +52,11 @@ These features rely on a `direc_func` parameter to properly determine what direc
 
 Feature | Description | Example
 --- | --- | ---
-Bytes in direction                      | The total bytes in the flow (Including the packet headers) | 1748
-Packets per second in direction         | The packets per second in a given direction. Calculated by dividing the total packet sizes by the flow duration | 1.979359336221774
-Bytes per second in direction           | The bytes per second in a given direction. Calculated by dividing the total packet sizes by the flow duration | 314.5381927014237
-Ratio of forward and backward packets   | Calculated by dividing the number of forward packets by the number of backward packets. | 1.1
-Ratio of forward and backward bytes     | Calculated by dividing the number of forward bytes by the number of backward packets. | 0.20133609767334715
+Bytes in direction                    | The total bytes in the flow (Including the packet headers) | 1748
+Packets per second in direction       | The packets per second in a given direction. Calculated by dividing the total packet sizes by the flow duration | 1.979359336221774
+Bytes per second in direction         | The bytes per second in a given direction. Calculated by dividing the total packet sizes by the flow duration | 314.5381927014237
+Ratio of forward and backward packets | Calculated by dividing the number of forward packets by the number of backward packets. | 1.1
+Ratio of forward and backward bytes   | Calculated by dividing the number of forward bytes by the number of backward packets. | 0.20133609767334715
 
 
 ### Meta Features
