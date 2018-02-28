@@ -4,8 +4,20 @@ from datetime import datetime
 PROTOCOL_TABLE = {num: name[8:] for name, num in vars(socket).items() if name.startswith("IPPROTO")}
 
 
-def get_protocol_name(protocol_number):
-    return PROTOCOL_TABLE[protocol_number]
+def protocol_name(protocol_number):
+   """
+   Uses the lookup table PROTOCOL_TABLE to give the protocol number
+
+   Source: https://stackoverflow.com/questions/37004965/how-to-turn-protocol-number-to-name-with-python
+   :param protocol_number:
+   :return: The protocol name
+   """
+
+   return PROTOCOL_TABLE[protocol_number]
+
+
+def protocol_number(protocol_name):
+   return socket.getprotobyname(protocol_name)
 
 
 def abs_time(time):
