@@ -11,6 +11,7 @@ If uni-directional flows are used, all flows will automatically be in the forwar
 
 ## Directions
 These are stored in `Scripts/Attributes/directions.py`. These are used in conjunction with the [Direction based features](###-Direction-based-Features). The possible values are:
+
 Direction | Description
 --- | ---
 Forward        | Only consider packets in the forward direction
@@ -19,6 +20,7 @@ Bi directional | Consider all packets (packets from either direction) in creatin
 
 ## Aggregate functions
 These are stored in  `Scripts/Attributes/aggregate_functions.py`. These are used with the [Meta features](###-Meta-Features). The possible values are:
+
 Aggregate function | Description
 --- | ---
 Max  | Get the maximum
@@ -62,6 +64,7 @@ Cumulative or of flags                  | Returns N/A if the protocol is not TCP
 These features take a `reduce_func` parameter in addition to the `direc_func` parameter. The goal of the  `reduce_func` parameter is to reduce the results into a single value by aggregating them depending on the value given.
 
 The word *meta* was used since I couldn't think of a better name.
+
 Feature | Description | Example
 --- | --- | ---
 Meta packet size         | Returns the aggregated packet size in a given direction | 158.9090909090909
@@ -69,6 +72,7 @@ Meta inter arrival times | The inter arrival time is the time between two consec
 
 ### Other Features
 These features are placed here since the parameters they take are unrelated to one another.
+
 Feature | Additional parameter | Description | Example
 --- | --- | --- | ---
 Flag count in direction | `flag_bit` | Returns the number of instances that the value passed in `flag_bit` occurs in the flow in a given direction | 10
