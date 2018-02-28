@@ -37,12 +37,14 @@ These features are not reliant on any direction. They can be found by simply agg
 
 Feature | Description | Example
 --- | --- | ---
-Src IP       | The source IP | '172.16.15.3'
-Src port     | The source port | 49622
-Dst IP       | The destination IP | '152.14.13.11'
-Dst port     | The destination port | 80
-Proto number | The protocol number  | 6 (for TCP), 17 (for UDP)
-Packet count | The number of packets in the flow | 21
+Src IP                 | The source IP | '172.16.15.3'
+Src port               | The source port | 49622
+Dst IP                 | The destination IP | '152.14.13.11'
+Dst port               | The destination port | 80
+Proto number           | The protocol number  | 6 (for TCP), 17 (for UDP)
+Packet count           | The number of packets in the flow | 21
+Duration               | The flow's duration calculated by end time - start time | 5.5573811531066895
+Cumulative or of flags | Returns N/A if the protocol is not TCP. If the Protocol is TCP, it returns the cumulative OR of the flags. | "FSPA" (FIN, SYN, PSH, and ACK flags in the flow)
 
 ### Direction-based Features
 These features rely on a `direc_func` parameter to properly determine what direction it will extract the particular feature from.
@@ -50,14 +52,10 @@ These features rely on a `direc_func` parameter to properly determine what direc
 Feature | Description | Example
 --- | --- | ---
 Bytes in direction                      | The total bytes in the flow (Including the packet headers) | 1748
-Start time                              | A float representing the start time of the flow | 1518923777.9425566
-End time                                | A float representing the end time of the flow | 1518923783.4999378
-Duration                                | The flow's duration calculated by end time - start time | 5.5573811531066895
 Packets per second in direction         | The packets per second in a given direction. Calculated by dividing the total packet sizes by the flow duration | 1.979359336221774
 Bytes per second in direction           | The bytes per second in a given direction. Calculated by dividing the total packet sizes by the flow duration | 314.5381927014237
 Ratio of forward and backward packets   | Calculated by dividing the number of forward packets by the number of backward packets. | 1.1
 Ratio of forward and backward bytes     | Calculated by dividing the number of forward bytes by the number of backward packets. | 0.20133609767334715
-Cumulative or of flags                  | Returns N/A if the protocol is not TCP. If the Protocol is TCP, it returns the cumulative OR of the flags. | "FSPA" (FIN, SYN, PSH, and ACK flags in the flow)
 
 
 ### Meta Features

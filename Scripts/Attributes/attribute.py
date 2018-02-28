@@ -74,17 +74,17 @@ def bytes_in_direction(packets, direc_func):
    return sum(map((lambda direc_packet: len(direc_packet)), direc_packets))
 
 
-def start_time(packets):
+def _start_time(packets):
    return min(list(map((lambda packet: packet.time), packets)))
 
 
-def end_time(packets):
+def _end_time(packets):
    return max(list(map((lambda packet: packet.time), packets)))
 
 
 def duration(packets):
    """:return: max_time(packets) - min_time(packets"""
-   return end_time(packets) - start_time(packets)
+   return _end_time(packets) - _start_time(packets)
 
 
 def packets_per_second_in_direction(packets, direc_func):
@@ -130,7 +130,7 @@ def flag_count_in_direction(packets, flag_bit, direc_func):
       return -1
 
    #We use the & to perform a byte-wise and operation
-   return sum(map((lambda direc_packet: (direc_packet[TCP].flags & flag_bit) > 0), direc_packets)
+   return sum(map((lambda direc_packet: (direc_packet[TCP].flags & flag_bit) > 0), direc_packets))
 
 
 def meta_packet_size_in_direction(packets, reduce_func, direc_func):
