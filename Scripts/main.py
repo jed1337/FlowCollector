@@ -1,6 +1,8 @@
 import Attributes as a
 import utils as utils
 
+from flags import Flags
+
 from scapy.all import *
 from importlib import reload
 

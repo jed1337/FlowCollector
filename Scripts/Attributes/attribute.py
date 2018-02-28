@@ -1,8 +1,8 @@
 import utils
 import Attributes.directions as dir
-import numpy as np
-
 from Attributes.direction_holder import DirectionHolder
+
+from operator import or_
 from scapy.all import *
 
 IP = scapy.layers.inet.IP
@@ -65,6 +65,12 @@ def packet_count_in_direction(packets, direc_func):
    return len(direc_packets)
 
 
+def bytes_in_direction(packets, direc_func):
+   direc_packets = _packets_in_direction(packets, direc_func)
+
+   return sum(map((lambda direc_packet: len(direc_packet)), direc_packets))
+
+
 def total_bytes(packets):
    """
    This function assumes that all unnecessary layers from the packets have been removed.
@@ -85,12 +91,6 @@ def average_bytes_per_packet(packets):
    return float(total_bytes(packets)) / float(packet_count(packets))
 
 
-def bytes_in_direction(packets, direc_func):
-   direc_packets = _packets_in_direction(packets, direc_func)
-
-   return sum(map((lambda direc_packet: len(direc_packet)), direc_packets))
-
-
 def start_time(packets):
    return min(list(map((lambda packet: packet.time), packets)))
 
@@ -104,24 +104,6 @@ def duration(packets):
    return end_time(packets) - start_time(packets)
 
 
-def meta_interarrival_times(packets, reduce_func, direc_func):
-   direc_packets = _packets_in_direction(packets, direc_func)
-
-   # packet index, we start at index 1 (i.e. the second item)
-   # since the time[i] = packets[i] - packets[i-1]
-   dp_index = 1
-
-   interarrival_times = []
-   while dp_index < len(direc_packets):
-      interarrival_time = direc_packets[dp_index].time - direc_packets[dp_index-1].time
-      interarrival_times.append(interarrival_time)
-
-      dp_index+=1
-
-   return reduce_func(interarrival_times)
-
-
-#New functions
 def packets_per_second_in_direction(packets, direc_func):
    direc_packets = _packets_in_direction(packets, direc_func)
    dur = duration(direc_packets)
@@ -156,17 +138,38 @@ def cumulative_or_of_flags(packets):
    if proto_number(packets) != TCP_NUMBER:
       return "N/A"
 
-   c_flags = 0
-   for packet in packets:
-      if TCP not in packet:
-         continue
-      c_flags |= packet[TCP].flags
-
-   return str(c_flags)
+   return str(reduce(or_, map((lambda packet: packet[TCP].flags), packets)))
 
 
-def packet_size_variance_in_direction(packets, direc_func):
-   direc_packets= _packets_in_direction(packets, direc_func)
+def flag_count_in_direction(packets, flag_bit, direc_func):
+   direc_packets = _packets_in_direction(packets, direc_func)
+   if proto_number(direc_packets) != TCP_NUMBER:
+      return -1
+
+   #We use the & to perform a byte-wise and operation
+   return sum(map((lambda direc_packet: (direc_packet[TCP].flags & flag_bit) > 0), direc_packets))
+
+
+def meta_packet_size_in_direction(packets, reduce_func, direc_func):
+   """ :return: packet size (in bytes) given the parameters """
+   direc_packets = _packets_in_direction(packets, direc_func)
    direc_packet_byte_array = list(map((lambda direc_packet: len(direc_packet)), direc_packets))
 
-   return np.var(direc_packet_byte_array)
+   return reduce_func(direc_packet_byte_array)
+
+
+def meta_interarrival_times(packets, reduce_func, direc_func):
+   direc_packets = _packets_in_direction(packets, direc_func)
+
+   # packet index, we start at index 1 (i.e. the second item)
+   # since the time[i] = packets[i] - packets[i-1]
+   dp_index = 1
+
+   interarrival_times = []
+   while dp_index < len(direc_packets):
+      interarrival_time = direc_packets[dp_index].time - direc_packets[dp_index-1].time
+      interarrival_times.append(interarrival_time)
+
+      dp_index+=1
+
+   return reduce_func(interarrival_times)
