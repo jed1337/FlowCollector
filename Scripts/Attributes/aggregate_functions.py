@@ -8,16 +8,16 @@ def min_agg(arr):
    return min(arr)
 
 
+def mean_agg(arr):
+   return np.mean(arr)
+
+
 def std_agg(arr):
    return np.std(arr)
 
 
 def var_agg(arr):
    return np.var(arr)
-
-
-def mean_agg(arr):
-   return np.mean(arr)
 
 
 def no_agg(arr):

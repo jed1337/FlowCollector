@@ -43,11 +43,6 @@ def proto_number(packets):
    return packets[0].proto
 
 
-def packet_count(packets):
-   """Returns len(packets)"""
-   return len(packets)
-
-
 def _packets_in_direction(packets, direc_func):
    dh = DirectionHolder(packets)
 
@@ -66,12 +61,6 @@ def packet_count_in_direction(packets, direc_func):
 
 
 def bytes_in_direction(packets, direc_func):
-   direc_packets = _packets_in_direction(packets, direc_func)
-
-   return sum(map((lambda direc_packet: len(direc_packet)), direc_packets))
-
-
-def total_bytes(packets):
    """
    This function assumes that all unnecessary layers from the packets have been removed.
 
@@ -80,15 +69,9 @@ def total_bytes(packets):
    :param packets:
    :return:
    """
-   total = 0
-   for packet in packets:
-      total += packet.len
+   direc_packets = _packets_in_direction(packets, direc_func)
 
-   return total
-
-
-def average_bytes_per_packet(packets):
-   return float(total_bytes(packets)) / float(packet_count(packets))
+   return sum(map((lambda direc_packet: len(direc_packet)), direc_packets))
 
 
 def start_time(packets):
@@ -147,7 +130,7 @@ def flag_count_in_direction(packets, flag_bit, direc_func):
       return -1
 
    #We use the & to perform a byte-wise and operation
-   return sum(map((lambda direc_packet: (direc_packet[TCP].flags & flag_bit) > 0), direc_packets))
+   return sum(map((lambda direc_packet: (direc_packet[TCP].flags & flag_bit) > 0), direc_packets)
 
 
 def meta_packet_size_in_direction(packets, reduce_func, direc_func):
