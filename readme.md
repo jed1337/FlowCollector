@@ -11,7 +11,7 @@ The tool has the option of using both uni-directional and bi-directional flows. 
 If uni-directional flows are used, all flows will automatically be in the forward direction. Since some of the features have a `direc_func` parameter indicating what direction to use, the value of those features will return 0 if `directions.backward` is given as the parameter (since there are no flows in the backward direction).
 
 ## Directions
-These are stored in `Scripts/Attributes/directions.py`. These are used in conjunction with the [Direction based features](###-Direction-based-Features). The possible values are:
+These are stored in `Scripts/Attributes/directions.py`. These are used in conjunction with the [Direction based features](#direction-based-features). The possible values are:
 
 Direction | Description
 --- | ---
@@ -20,7 +20,7 @@ Backward       | Only consider packets in the backward direction
 Bi directional | Consider all packets (packets from either direction) in creating the feature
 
 ## Aggregate functions
-These are stored in  `Scripts/Attributes/aggregate_functions.py`. These are used with the [Meta features](###-Meta-Features). The possible values are:
+These are stored in  `Scripts/Attributes/aggregate_functions.py`. These are used with the [Meta features](#meta-features). The possible values are:
 
 Aggregate function | Description
 --- | ---
@@ -43,7 +43,6 @@ Src port               | The source port | 49622
 Dst IP                 | The destination IP | '152.14.13.11'
 Dst port               | The destination port | 80
 Proto number           | The protocol number  | 6 (for TCP), 17 (for UDP)
-Packet count           | The number of packets in the flow | 21
 Duration               | The flow's duration calculated by end time - start time | 5.5573811531066895
 Cumulative or of flags | Returns N/A if the protocol is not TCP. If the Protocol is TCP, it returns the cumulative OR of the flags. | "FSPA" (FIN, SYN, PSH, and ACK flags in the flow)
 
@@ -52,6 +51,7 @@ These features rely on a `direc_func` parameter to properly determine what direc
 
 Feature | Description | Example
 --- | --- | ---
+Packet count in direction             | The number of packets in the flow given a direction| 10
 Bytes in direction                    | The total bytes in the flow (Including the packet headers) | 1748
 Packets per second in direction       | The packets per second in a given direction. Calculated by dividing the total packet sizes by the flow duration | 1.979359336221774
 Bytes per second in direction         | The bytes per second in a given direction. Calculated by dividing the total packet sizes by the flow duration | 314.5381927014237
