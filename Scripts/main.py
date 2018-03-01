@@ -118,12 +118,10 @@ bi_flows = get_flows(packets, bi_flow)
 ps = bi_flows['172.16.15.3; 49622; -> 152.14.13.11; 80; 6']
 
 attributes = [
-   a.att.src_ip,
-   a.att.src_port,
-   a.att.dst_ip,
-   a.att.dst_port
+   a.feature.SrcIP,
+   a.feature.SrcPort,
+   a.feature.DstIP,
+   a.feature.DstPort
 ]
-
-aw = ArffWriter()
 
 # main()
