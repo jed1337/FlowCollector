@@ -1,0 +1,41 @@
+@relation ,?
+@attribute src_ip string
+@attribute src_port numeric
+@attribute dst_ip string
+@attribute dst_port numeric
+@attribute proto_number numeric
+@attribute duration numeric
+@attribute cof string
+@attribute total_f_packets numeric
+@attribute total_b_packets numeric
+@attribute total_f_bytes numeric
+@attribute total_b_bytes numeric
+@attribute pps_f numeric
+@attribute pps_b numeric
+@attribute bps_f numeric
+@attribute bps_b numeric
+@attribute rfb_packets numeric
+@attribute rfb_bytes numeric
+@attribute min_f_pkt numeric
+@attribute mean_f_pkt numeric
+@attribute max_f_pkt numeric
+@attribute std_f_pkt numeric
+@attribute min_b_pkt numeric
+@attribute mean_b_pkt numeric
+@attribute max_b_pkt numeric
+@attribute std_b_pkt numeric
+@attribute min_f_time numeric
+@attribute mean_f_time numeric
+@attribute max_f_time numeric
+@attribute std_f_time numeric
+@attribute min_b_time numeric
+@attribute mean_b_time numeric
+@attribute max_b_time numeric
+@attribute std_b_time numeric
+@attribute psh_f_cnt numeric
+@attribute urg_f_cnt numeric
+@attribute psh_b_cnt numeric
+@attribute urg_b_cnt numeric
+@attribute isAttack {normal,slowHeaders,slowRead,tcpFlood,udpFlood,httpFlood}
+@data
+% ../SamplePcap/gg\gg.pcapng

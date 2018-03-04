@@ -1,21 +1,25 @@
 import Attributes.feature as feature
+import os.path
+
 
 class ArffWriter():
    NEW_LINE  = "\n"
 
-   RELATION  = "@relation relation"
+   RELATION  = "@relation "
    ATTRIBUTE = "@attribute"
    DATA      = "@data"
 
+   SCRIPT_DIR = os.path.dirname(__file__)
+   OUTPUT_DIR = "../Bi flow output/"
 
-   def __init__(self, path, c_attribute, features):
+   def __init__(self, output_file_name, c_attribute, features):
       """
-      :param path: Path to the arff file
+      :param output_file_name: Only the file name. The directory is given by OUTPUT_DIR
       :param c_attribute: Class attribute (normal,slowHeaders,slowRead,tcpFlood,udpFlood,httpFlood)
       :param features: The features to extract implemented in Scripts/Attributes/feature.py
       """
-      self.path = path
-      self.c_attribute = ","+c_attribute #The "," is there since the c_attribute is always gonna be appended to the data
+      self.output_path = os.path.join(ArffWriter.SCRIPT_DIR, ArffWriter.OUTPUT_DIR, output_file_name)
+      self.class_attribute = "," + c_attribute #The "," is there since the c_attribute is always gonna be appended to the data
       self.features = features
 
 
@@ -28,20 +32,40 @@ class ArffWriter():
 
 
    def write_headers(self):
-      with open(self.path, 'w') as file:
-         file.write(ArffWriter.RELATION)
+      """Writes the headers to self.output_file if it doesn't exist"""
+      if not os.path.isfile(self.output_path):
+         # Create the directories on the relative path in addition to the file
+         os.makedirs(os.path.dirname(self.output_path), exist_ok=True)
+
+         with open(self.output_path, 'w') as file:
+            # @relation (classAttribtue)
+            file.write(ArffWriter.RELATION)
+            file.write(self.class_attribute)
+
+            file.write(ArffWriter.NEW_LINE)
+            file.write("\n".join(self._write_attribute_name()))
+            file.write(ArffWriter.NEW_LINE)
+            file.write(ArffWriter.DATA)
+      else:
+         print("%s already exists, not creating the file again", self.output_path)
+
+
+   def write_pcap_path(self, pcap_path):
+      """
+      This function just writes the pcap_path as a comment into the arff file.
+      It's done for debugging purposes as well as to keep track of where the written area is
+      """
+      with open(self.output_path, 'a+') as file:
          file.write(ArffWriter.NEW_LINE)
-         file.write("\n".join(self._write_attribute_name()))
-         file.write(ArffWriter.NEW_LINE)
-         file.write(ArffWriter.DATA)
+         file.write("% "+pcap_path)
          file.write(ArffWriter.NEW_LINE)
 
 
    def write_data(self, flows):
-      with open(self.path, 'a+') as file:
+      with open(self.output_path, 'a+') as file:
          for key, packets in flows.items():
             print("Current key: %s" %key)
             feature_string=[feature.action(packets) for feature in self.features]
             file.write(",".join(map(str, feature_string)))
-            file.write(self.c_attribute)
+            file.write(self.class_attribute)
             file.write(ArffWriter.NEW_LINE)
