@@ -1,8 +1,7 @@
-import Attributes as a
 import utils as utils
 
+from Attributes import feature as feat
 from arff_writer import ArffWriter
-from flags import Flags
 
 from scapy.all import *
 from importlib import reload
@@ -54,12 +53,11 @@ def get_flows(packets, flow_type):
    flows = {}
 
    for index, packet in enumerate(packets, start=0):
-      print("Current packet index = %s" % index)
+      # print("Current packet index = %s" % index)
       if scapy.layers.inet.IP not in packet:
          print("IP layer not in packet #%s" % index)
          continue
-      else:
-         print("IP inside")
+         # print("IP inside")
 
       orig_packet_time = packet.time
       packet_ip = packet['IP']
@@ -110,18 +108,57 @@ def uni_flow(flows, packet_ip, src, dst, sport, dport, proto):
 
 
 # def main():
-packets = rdpcap("../SamplePcap/NormalWithTeardown.pcapng")
+file_name = "notTCP"
+packets = rdpcap("../SamplePcap/testbed/"+file_name+".pcapng")
+# packets = rdpcap("../SamplePcap/NormalWithTeardown.pcapng")
 # packets = rdpcap("../SamplePcap/SYN.pcapng")
 uni_flows = get_flows(packets, uni_flow)
 bi_flows = get_flows(packets, bi_flow)
 
-ps = bi_flows['172.16.15.3; 49622; -> 152.14.13.11; 80; 6']
+# ps = bi_flows['172.16.15.3; 49622; -> 152.14.13.11; 80; 6']
 
 attributes = [
-   a.feature.SrcIP,
-   a.feature.SrcPort,
-   a.feature.DstIP,
-   a.feature.DstPort
+   feat.SrcIP,
+   feat.SrcPort,
+   feat.DstIP,
+   feat.DstPort,
+   feat.ProtoNumber,
+   feat.Duration,
+   feat.CumulativeOrOfFlags,
+   feat.PacketCountInForwardDirection,
+   feat.PacketCountInBackwardDirection,
+   feat.BytesInForwardDirection,
+   feat.BytesInBackwardDirection,
+   feat.PacketsPerSecondInForwardDirection,
+   feat.PacketsPerSecondInBackwardDirection,
+   feat.BytesPerSecondInForwardDirection,
+   feat.BytesPerSecondInBackwardDirection,
+   feat.RatioOfForwardAndBackwardPackets,
+   feat.RatioOfForwardAndBackwardBytes,
+   feat.MinPacketSizeInForwardDirection,
+   feat.MeanPacketSizeInForwardDirection,
+   feat.MaxPacketSizeInForwardDirection,
+   feat.StdPacketSizeInForwardDirection,
+   feat.MinPacketSizeInBackwardDirection,
+   feat.MeanPacketSizeInBackwardDirection,
+   feat.MaxPacketSizeInBackwardDirection,
+   feat.StdPacketSizeInBackwardDirection,
+   feat.MinInterarrivalTimeInForwardDirection,
+   feat.MeanInterarrivalTimeInForwardDirection,
+   feat.MaxInterarrivalTimeInForwardDirection,
+   feat.StdInterarrivalTimeInForwardDirection,
+   feat.MinInterarrivalTimeInBackwardDirection,
+   feat.MeanInterarrivalTimeInBackwardDirection,
+   feat.MaxInterarrivalTimeInBackwardDirection,
+   feat.StdInterarrivalTimeInBackwardDirection,
+   feat.PshFlagCountInForwardDirection,
+   feat.UrgFlagCountInForwardDirection,
+   feat.PshFlagCountInBackwardDirection,
+   feat.UrgFlagCountInBackwardDirection
 ]
+
+aw = ArffWriter("../TextFiles/"+file_name+".arff", "normal", attributes)
+aw.write_headers()
+aw.write_data(bi_flows)
 
 # main()

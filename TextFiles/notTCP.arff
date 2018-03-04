@@ -1,0 +1,44 @@
+@relation relation
+@attribute src_ip string
+@attribute src_port numeric
+@attribute dst_ip string
+@attribute dst_port numeric
+@attribute proto_number numeric
+@attribute duration numeric
+@attribute cof string
+@attribute total_f_packets numeric
+@attribute total_b_packets numeric
+@attribute total_f_bytes numeric
+@attribute total_b_bytes numeric
+@attribute pps_f numeric
+@attribute pps_b numeric
+@attribute bps_f numeric
+@attribute bps_b numeric
+@attribute rfb_packets numeric
+@attribute rfb_bytes numeric
+@attribute min_f_pkt numeric
+@attribute mean_f_pkt numeric
+@attribute max_f_pkt numeric
+@attribute std_f_pkt numeric
+@attribute min_b_pkt numeric
+@attribute mean_b_pkt numeric
+@attribute max_b_pkt numeric
+@attribute std_b_pkt numeric
+@attribute min_f_time numeric
+@attribute mean_f_time numeric
+@attribute max_f_time numeric
+@attribute std_f_time numeric
+@attribute min_b_time numeric
+@attribute mean_b_time numeric
+@attribute max_b_time numeric
+@attribute std_b_time numeric
+@attribute psh_f_cnt numeric
+@attribute urg_f_cnt numeric
+@attribute psh_b_cnt numeric
+@attribute urg_b_cnt numeric
+@attribute isAttack {normal,slowHeaders,slowRead,tcpFlood,udpFlood,httpFlood}
+@data
+192.168.2.10,137,192.168.2.255,137,17,1.4989416599273682,N/A,3,0,234,0,2.001412116429779,0.0,156.11014508152277,0.0,0.0,0.0,78,78.0,78,0.0,0,0,0,0,0.7489116191864014,0.7494708299636841,0.7500300407409668,0.0005592107772827148,0,0,0,0,-1,-1,-1,-1,normal
+192.168.2.1,137,192.168.2.10,137,1,2.9981706142425537,N/A,3,0,168,0,1.0006101673296228,0.0,56.03416937045888,0.0,0.0,0.0,56,56.0,56,0.0,0,0,0,0,1.4980435371398926,1.4990853071212769,1.5001270771026611,0.0010417699813842773,0,0,0,0,-1,-1,-1,-1,normal
+192.168.2.10,138,192.168.2.255,138,17,0.0,N/A,1,0,229,0,0.0,0.0,0.0,0.0,0.0,0.0,229,229.0,229,0.0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,-1,-1,normal
+192.168.2.10,137,172.16.4.4,137,17,2.998056650161743,N/A,3,0,234,0,1.0006482031745971,0.0,78.05055984761857,0.0,0.0,0.0,78,78.0,78,0.0,0,0,0,0,1.4979889392852783,1.4990283250808716,1.5000677108764648,0.0010393857955932617,0,0,0,0,-1,-1,-1,-1,normal

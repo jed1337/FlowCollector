@@ -1,0 +1,22 @@
+IP layer not in packet #0
+IP layer not in packet #1
+IP layer not in packet #2
+IP layer not in packet #4
+IP layer not in packet #5
+IP layer not in packet #6
+IP layer not in packet #7
+IP layer not in packet #11
+IP layer not in packet #12
+IP layer not in packet #0
+IP layer not in packet #1
+IP layer not in packet #2
+IP layer not in packet #4
+IP layer not in packet #5
+IP layer not in packet #6
+IP layer not in packet #7
+IP layer not in packet #11
+IP layer not in packet #12
+Current key: 192.168.2.10; 137; -> 192.168.2.255; 137; 17
+Current key: 192.168.2.1; 137; -> 192.168.2.10; 137; 1
+Current key: 192.168.2.10; 138; -> 192.168.2.255; 138; 17
+Current key: 192.168.2.10; 137; -> 172.16.4.4; 137; 17
