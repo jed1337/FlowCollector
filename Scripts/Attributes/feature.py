@@ -1,4 +1,4 @@
-import utils
+import general_utils
 import Attributes.directions as directions
 import Attributes.aggregate_functions as agg
 
@@ -6,12 +6,13 @@ from flags import Flags
 from Attributes.direction_holder import DirectionHolder
 from Attributes.data_type_holder import DataTypeHolder as DH
 
+from functools import reduce
 from operator import or_
 from scapy.all import *
 
 IP = scapy.layers.inet.IP
 TCP = scapy.layers.inet.TCP
-TCP_NUMBER = utils.protocol_number("TCP")
+TCP_NUMBER = general_utils.protocol_number("TCP")
 
 NUMERIC = "numeric"
 STRING = "string"

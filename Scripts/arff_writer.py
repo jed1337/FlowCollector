@@ -47,7 +47,7 @@ class ArffWriter():
             file.write(ArffWriter.NEW_LINE)
             file.write(ArffWriter.DATA)
       else:
-         print("%s already exists, not creating the file again", self.output_path)
+         print("%s already exists, not creating the file again" %self.output_path)
 
 
    def write_pcap_path(self, pcap_path):

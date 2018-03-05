@@ -1,4 +1,4 @@
-import utils as utils
+import general_utils as utils
 
 from Attributes import feature as feat
 from meta_data import MetaData
@@ -42,7 +42,7 @@ def print_summary(pkt):
       print(" IP dst " + str(ip_dst) + " TCP dport " + str(tcp_dport))
 
 
-def get_flows(pcap_path, flow_type):
+def get_flows(pcap_path, flow_type, flow_limit=10000, packet_limit=500000):
    """
    Aggregates the packets based on the source IP, destination IP, source port, destination port, and protocol.
 
@@ -53,29 +53,49 @@ def get_flows(pcap_path, flow_type):
 
    :param pcap_path:
    :param flow_type: Either uni_flow or bi_flow
+   :param flow_limit: How many flows at most to extract from the pcap file. 
+   It will stop extracting flows once the limit is surpassed
+
    :return: a dictionary. Key = identifier, Value = flow packets
    """
    flows = {}
 
-   packets = rdpcap(pcap_path)
-   for index, packet in enumerate(packets, start=0):
-      # print("Current packet index = %s" % index)
-      if scapy.layers.inet.IP not in packet:
-         print("IP layer not in packet #%s" % index)
-         continue
-         # print("IP inside")
+   # packets = rdpcap(pcap_path)
+   # PcapReader doesn't read the entire thing in memory all at once
+   with PcapReader(pcap_path) as pcap_reader:
+      for index, packet in enumerate(pcap_reader, start=0):
+         flow_length = len(flows)
+         print("Current packet: %d, flow size: %d" %(index, flow_length))
 
-      orig_packet_time = packet.time
-      packet_ip = packet['IP']
-      packet_ip.time = orig_packet_time
+         if scapy.layers.inet.IP not in packet:
+            print("IP layer not in packet #%s" % index)
+            continue
 
-      src = packet_ip.src
-      dst = packet_ip.dst
-      sport = packet_ip.sport
-      dport = packet_ip.dport
-      proto = packet_ip.proto
+         if flow_length >flow_limit:
+            print("The flow size is over the limit (%d)." %flow_limit)
+            break
+      
+         if index > packet_limit:
+            print("The packet count is over the limit (%d)." %packet_limit)
+            break
 
-      flow_type(flows, packet_ip, src, dst, sport, dport, proto)
+
+         orig_packet_time = packet.time
+         packet_ip = packet['IP']
+         packet_ip.time = orig_packet_time
+
+         try:
+            src = packet_ip.src
+            dst = packet_ip.dst
+            sport = packet_ip.sport
+            dport = packet_ip.dport
+            proto = packet_ip.proto
+         except AttributeError as ae:
+             print("AttributeError raised on packet %d: %s"%(index, ae))
+             print("Not adding this packet to the flow")
+             continue
+
+         flow_type(flows, packet_ip, src, dst, sport, dport, proto)
 
    return flows
 
@@ -172,20 +192,24 @@ def features_arr():
 #Execute this if the script is being ran directly. Directly = python main.py
 if __name__ == "__main__":
    if len(sys.argv) > 1:
-       pcap_dir = sys.argv[1]
+      print("Path is '%s'" %sys.argv[1])
+      pcap_dir = sys.argv[1]
    else:
        pcap_dir = "../SamplePcap/noise/N"
        # pcap_dir = "C:/Users/dell/OneDrive - De La Salle University - Manila/Thesis/Datasets/testbed/finalDataset/Feb26"
 
+   pcap_path = None
    for pcap_path in all_pcap_paths(pcap_dir):
+      print("pcap_path is '%s'" %pcap_path)
       md = MetaData(pcap_path)
 
       aw = ArffWriter(md.output_file_name, md.class_attribute, features_arr())
       aw.write_headers()
       aw.write_pcap_path(pcap_path)
       aw.write_data(get_flows(pcap_path, bi_flow))
-   else:
+   
    #    Only executed if the loop never iterated
+   if not pcap_path:
       print("No pcap files were found in %s"%pcap_dir)
 
    # packets = rdpcap(file_name)
