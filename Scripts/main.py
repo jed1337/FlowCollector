@@ -195,7 +195,8 @@ if __name__ == "__main__":
       print("Path is '%s'" %sys.argv[1])
       pcap_dir = sys.argv[1]
    else:
-       pcap_dir = "../SamplePcap/noise/N"
+       pcap_dir = "../SamplePcap/"
+       # pcap_dir = "C:/Users/dell/Documents/Pycharm/FlowCollector/darpaSYN(ThursdayWeek3Neptune)/T"
        # pcap_dir = "C:/Users/dell/OneDrive - De La Salle University - Manila/Thesis/Datasets/testbed/finalDataset/Feb26"
 
    pcap_path = None
