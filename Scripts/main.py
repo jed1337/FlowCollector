@@ -53,7 +53,7 @@ def get_flows(pcap_path, flow_type, flow_limit=10000, packet_limit=500000):
 
    :param pcap_path:
    :param flow_type: Either uni_flow or bi_flow
-   :param flow_limit: How many flows at most to extract from the pcap file. 
+   :param flow_limit: How many flows at most to extract from the pcap file.
    It will stop extracting flows once the limit is surpassed
 
    :return: a dictionary. Key = identifier, Value = flow packets
@@ -63,7 +63,7 @@ def get_flows(pcap_path, flow_type, flow_limit=10000, packet_limit=500000):
    # packets = rdpcap(pcap_path)
    # PcapReader doesn't read the entire thing in memory all at once
    with PcapReader(pcap_path) as pcap_reader:
-      for index, packet in enumerate(pcap_reader, start=0):
+      for index, packet in enumerate(pcap_reader, start=1):
          flow_length = len(flows)
          print("Current packet: %d, flow size: %d" %(index, flow_length))
 
@@ -74,7 +74,7 @@ def get_flows(pcap_path, flow_type, flow_limit=10000, packet_limit=500000):
          if flow_length >flow_limit:
             print("The flow size is over the limit (%d)." %flow_limit)
             break
-      
+
          if index > packet_limit:
             print("The packet count is over the limit (%d)." %packet_limit)
             break
@@ -195,7 +195,7 @@ if __name__ == "__main__":
       print("Path is '%s'" %sys.argv[1])
       pcap_dir = sys.argv[1]
    else:
-       pcap_dir = "../SamplePcap/"
+       pcap_dir = "../Caida/"
        # pcap_dir = "C:/Users/dell/Documents/Pycharm/FlowCollector/darpaSYN(ThursdayWeek3Neptune)/T"
        # pcap_dir = "C:/Users/dell/OneDrive - De La Salle University - Manila/Thesis/Datasets/testbed/finalDataset/Feb26"
 
@@ -208,7 +208,7 @@ if __name__ == "__main__":
       aw.write_headers()
       aw.write_pcap_path(pcap_path)
       aw.write_data(get_flows(pcap_path, bi_flow))
-   
+
    #    Only executed if the loop never iterated
    if not pcap_path:
       print("No pcap files were found in %s"%pcap_dir)

@@ -120,6 +120,7 @@ def _flag_count_in_direction(packets, flag_bit, direc_func):
       return -1
 
    #We use the & to perform a byte-wise and operation
+
    return sum(map((lambda direc_packet: (direc_packet[TCP].flags & flag_bit) > 0), direc_packets))
 
 
@@ -215,7 +216,11 @@ class CumulativeOrOfFlags:
       if ProtoNumber.action(packets) != TCP_NUMBER:
          return "N/A"
 
-      return reduce(or_, map(lambda packet: packet[TCP].flags.value, packets))
+      total = reduce(or_, map(lambda packet: packet[TCP].flags.value, packets))
+      if total > 127:
+         print("Warning total COF over 127:",total)
+         return -1
+      return total
 
 
 class PacketCountInForwardDirection:
