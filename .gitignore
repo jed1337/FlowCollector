@@ -47,10 +47,3 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
-
-# BigData (Not included due to its size)
-Caida/
-DarpaThursday/
-
-# Output
-"Bi flow output/"

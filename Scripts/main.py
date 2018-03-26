@@ -195,8 +195,12 @@ if __name__ == "__main__":
       print("Path is '%s'" %sys.argv[1])
       pcap_dir = sys.argv[1]
    else:
+<<<<<<< HEAD
        pcap_dir = "../Caida/"
        # pcap_dir = "C:/Users/dell/Documents/Pycharm/FlowCollector/darpaSYN(ThursdayWeek3Neptune)/T"
+=======
+       pcap_dir = "../SamplePcap/noise/N"
+>>>>>>> parent of 355f354... Made the cumulative flags function return the int representation instead of a string representation of the flags
        # pcap_dir = "C:/Users/dell/OneDrive - De La Salle University - Manila/Thesis/Datasets/testbed/finalDataset/Feb26"
 
    pcap_path = None
