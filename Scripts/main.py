@@ -191,24 +191,34 @@ def features_arr():
 
 #Execute this if the script is being ran directly. Directly = python main.py
 if __name__ == "__main__":
-   if len(sys.argv) > 1:
-      print("Path is '%s'" %sys.argv[1])
+   if len(sys.argv) > 2:
+      print("Input is '%s'" %sys.argv[1])
+      print("Output Path is '%s'" %sys.argv[2])
       pcap_dir = sys.argv[1]
+      output_path = sys.argv[2]
+
+   elif len(sys.argv) == 2:
+      print("Input is '%s'" %sys.argv[1])
+      pcap_dir = sys.argv[1]
+      output_path = "../Bi flow output/"
+
    else:
-<<<<<<< HEAD
-       pcap_dir = "../Caida/"
-       # pcap_dir = "C:/Users/dell/Documents/Pycharm/FlowCollector/darpaSYN(ThursdayWeek3Neptune)/T"
-=======
-       pcap_dir = "../SamplePcap/noise/N"
->>>>>>> parent of 355f354... Made the cumulative flags function return the int representation instead of a string representation of the flags
-       # pcap_dir = "C:/Users/dell/OneDrive - De La Salle University - Manila/Thesis/Datasets/testbed/finalDataset/Feb26"
+      pcap_dir = "../Caida/"
+      output_path = "../Bi flow output/"
+      # pcap_dir = "C:/Users/dell/Documents/Pycharm/FlowCollector/darpaSYN(ThursdayWeek3Neptune)/T"
+      # pcap_dir = "C:/Users/dell/OneDrive - De La Salle University - Manila/Thesis/Datasets/testbed/finalDataset/Feb26"
 
    pcap_path = None
    for pcap_path in all_pcap_paths(pcap_dir):
       print("pcap_path is '%s'" %pcap_path)
       md = MetaData(pcap_path)
 
-      aw = ArffWriter(md.output_file_name, md.class_attribute, features_arr())
+      aw = ArffWriter(
+         output_file_path=output_path,
+         output_file_name=md.output_file_name,
+         c_attribute=md.class_attribute,
+         features=features_arr(),
+      )
       aw.write_headers()
       aw.write_pcap_path(pcap_path)
       aw.write_data(get_flows(pcap_path, bi_flow))

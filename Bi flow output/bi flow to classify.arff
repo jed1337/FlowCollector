@@ -1,0 +1,45 @@
+@relation ,?
+@attribute src_ip string
+@attribute src_port numeric
+@attribute dst_ip string
+@attribute dst_port numeric
+@attribute proto_number numeric
+@attribute duration numeric
+@attribute cof {N/A,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127}
+@attribute total_f_packets numeric
+@attribute total_b_packets numeric
+@attribute total_f_bytes numeric
+@attribute total_b_bytes numeric
+@attribute pps_f numeric
+@attribute pps_b numeric
+@attribute bps_f numeric
+@attribute bps_b numeric
+@attribute rfb_packets numeric
+@attribute rfb_bytes numeric
+@attribute min_f_pkt numeric
+@attribute mean_f_pkt numeric
+@attribute max_f_pkt numeric
+@attribute std_f_pkt numeric
+@attribute min_b_pkt numeric
+@attribute mean_b_pkt numeric
+@attribute max_b_pkt numeric
+@attribute std_b_pkt numeric
+@attribute min_f_time numeric
+@attribute mean_f_time numeric
+@attribute max_f_time numeric
+@attribute std_f_time numeric
+@attribute min_b_time numeric
+@attribute mean_b_time numeric
+@attribute max_b_time numeric
+@attribute std_b_time numeric
+@attribute psh_f_cnt numeric
+@attribute urg_f_cnt numeric
+@attribute psh_b_cnt numeric
+@attribute urg_b_cnt numeric
+@attribute isAttack {normal,slowHeaders,slowRead,tcpFlood,udpFlood,httpFlood}
+@data
+% ../live_capture\Mon_03_26_2018_11_32_53.70.pcapng
+
+% ../live_capture\Mon_03_26_2018_11_38_28.83.pcapng
+
+% ../live_capture\Mon_03_26_2018_11_38_28.83.pcapng
