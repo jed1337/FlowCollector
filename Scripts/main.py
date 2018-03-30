@@ -147,7 +147,6 @@ def all_pcap_paths(dir, pcap_extensions = [".pcapng", ".pcap"]):
       glob.iglob(dir + "/**/*" + pcap_extension, recursive=True) for pcap_extension in pcap_extensions
    )
 
-
 def features_arr():
    return [
       feat.SrcIP,
@@ -203,7 +202,8 @@ if __name__ == "__main__":
       output_path = "../Bi flow output/"
 
    else:
-      pcap_dir = "../Caida/"
+      pcap_dir = "../live_capture_input/"
+      # pcap_dir = "../Caida/"
       output_path = "../Bi flow output/"
       # pcap_dir = "C:/Users/dell/Documents/Pycharm/FlowCollector/darpaSYN(ThursdayWeek3Neptune)/T"
       # pcap_dir = "C:/Users/dell/OneDrive - De La Salle University - Manila/Thesis/Datasets/testbed/finalDataset/Feb26"
@@ -211,7 +211,7 @@ if __name__ == "__main__":
    pcap_path = None
    for pcap_path in all_pcap_paths(pcap_dir):
       print("pcap_path is '%s'" %pcap_path)
-      md = MetaData(pcap_path)
+      md = MetaData(pcap_path, specified_file_name=utils.path_leaf(pcap_path)+".arff")
 
       aw = ArffWriter(
          output_file_path=output_path,

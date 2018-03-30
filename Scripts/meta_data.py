@@ -7,9 +7,9 @@ class MetaData:
    """
 
    """
-   Since the path to a pcap file is in the format (...)/(single letter)/(...), 
+   Since the path to a pcap file is in the format (...)/(single letter)/(...),
    this pattern tries to isolate /(single letter)/.
-   
+
    (?i) makes it case insensitive
    """
    ATTACK_TYPE_PATTERN = re.compile("(?i)/[A-Z]/")
@@ -20,7 +20,7 @@ class MetaData:
                         "/B/": "slowBody", "/H/": "slowHeaders", "/X/": "slowRead",
                         "/T/": "tcpFlood", "/U/": "udpFlood", "/F/": "httpFlood"}
 
-   def __init__(self, pcap_path):
+   def __init__(self, pcap_path, specified_file_name=None):
       # Since the path has slashes, this pattern tries to normalise the slashes (both forward and backward slashes)
       # into "\". It's written as "\\" since we need to escape it
       formatted_pcap_path = re.sub(r"\\+?", "/", pcap_path)
@@ -32,6 +32,8 @@ class MetaData:
 
       if range:
          self._known_attack(range, formatted_pcap_path)
+      elif specified_file_name:
+         self._specified_file_name(specified_file_name)
       else:
          self._unknown_attack()
 
@@ -65,6 +67,17 @@ class MetaData:
       # if not self.is_noise: (assume that is_noise is None)
       #   (not noise since "not None" == True)
       self.is_noise = MetaData.NOISE_PATTERN.search(formatted_pcap_path)
+
+
+   def _specified_file_name(self, specified_file_name):
+      """
+      Assigns the specified file name to self.output_file_name
+
+      It assumes that the file is to be classified and that it isn't noise
+      """
+      self.class_attribute = "?"
+      self.output_file_name = specified_file_name
+      self.is_noise = False
 
 
    def _unknown_attack(self):

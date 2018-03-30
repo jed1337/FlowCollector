@@ -1,4 +1,4 @@
-#!/home/jed/Documents/FlowCollector/ubuntu_venv/bin/python3
+#!/home/apache/Documents/live/ubuntu_venv/bin/python3
 
 
 #############################################################################
@@ -24,4 +24,4 @@
 import sys
 from scapy.tools.UTscapy import main
 
-main(sys.argv[1:])
+exit(main(sys.argv[1:]))

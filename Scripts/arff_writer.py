@@ -27,7 +27,8 @@ class ArffWriter():
       """:return: "@attribute (feature name) (data type)" """
       attributes = [" ".join([ArffWriter.ATTRIBUTE, feature.data_type_holder().name, feature.data_type_holder().type])
                     for feature in self.features]
-      attributes.append("@attribute isAttack {normal,slowHeaders,slowRead,tcpFlood,udpFlood,httpFlood}")
+      # attributes.append("@attribute isAttack {normal,slowHeaders,slowRead,tcpFlood,udpFlood,httpFlood}")
+      attributes.append("@attribute isAttack {tcpFlood,normal,httpFlood,slowRead,slowHeaders,udpFlood}")
       return attributes
 
 
