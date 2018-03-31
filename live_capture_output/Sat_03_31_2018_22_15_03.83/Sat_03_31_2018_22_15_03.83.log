@@ -1,0 +1,575 @@
+Argument length = 4
+Class attributes per index
+Index 0: normal
+Index 1: attack
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 54.230.208.84:443, Destination: 192.168.254.100:57055, protocolID: 6
+[0.11915286830815923, 0.66919505110064, 0.07098980417624914, 0.07558081890376152, 0.06508145751119014]
+
+Information: Source: 54.230.208.84:443, Destination: 192.168.254.100:57055, protocolID: 6
+[0.0822075460380358, 0.9177924539619642]
+
+Predicted class: attack
+Predicted class: tcpFlood
+Information: Source: 52.230.83.250:443, Destination: 192.168.254.100:55846, protocolID: 6
+[0.6797280626116685, 0.1333267505310538, 0.02931186637579827, 0.03644407663596809, 0.12118924384551134]
+
+Information: Source: 52.230.83.250:443, Destination: 192.168.254.100:55846, protocolID: 6
+[0.03440512354828319, 0.9655948764517168]
+
+Predicted class: attack
+Predicted class: udpFlood
+Information: Source: 192.168.254.100:55611, Destination: 192.168.254.254:53, protocolID: 17
+[0.0, 0.0, 0.04, 0.05, 0.91]
+
+Information: Source: 192.168.254.100:55611, Destination: 192.168.254.254:53, protocolID: 17
+[0.43, 0.57]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 106.10.249.87:443, Destination: 192.168.254.100:57258, protocolID: 6
+[0.2435736164546784, 0.7149813789719901, 0.0012623271037905187, 0.02002217294900222, 0.020160504520538806]
+
+Information: Source: 106.10.249.87:443, Destination: 192.168.254.100:57258, protocolID: 6
+[0.002633660354399574, 0.9973663396456004]
+
+Predicted class: attack
+Predicted class: slowRead
+Information: Source: 192.168.254.100:57332, Destination: 184.87.241.236:443, protocolID: 6
+[0.02625895970481458, 0.19643329757248584, 0.44643091067450497, 0.2976830089592381, 0.033193823088956576]
+
+Information: Source: 192.168.254.100:57332, Destination: 184.87.241.236:443, protocolID: 6
+[0.06882995092832263, 0.9311700490716774]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 203.177.59.146:443, Destination: 192.168.254.100:57327, protocolID: 6
+[0.10244749663154502, 0.38024211529625906, 0.2032725483816399, 0.24273105372730425, 0.0713067859632517]
+
+Information: Source: 203.177.59.146:443, Destination: 192.168.254.100:57327, protocolID: 6
+[0.06946091374833066, 0.9305390862516693]
+
+Predicted class: attack
+Predicted class: tcpFlood
+Information: Source: 203.177.59.146:443, Destination: 192.168.254.100:57326, protocolID: 6
+[0.6551131183860383, 0.06341693757564444, 0.0780760981761552, 0.06051577845766484, 0.14287806740449732]
+
+Information: Source: 203.177.59.146:443, Destination: 192.168.254.100:57326, protocolID: 6
+[0.2187489117717302, 0.7812510882282697]
+
+Predicted class: normal
+Information: Source: 192.168.254.103:5353, Destination: 224.0.0.251:5353, protocolID: 17
+[0.7, 0.3]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 62.128.100.45:443, Destination: 192.168.254.100:57328, protocolID: 6
+[0.2576421642019406, 0.5159150253199966, 0.11761217443822357, 0.07733532920378569, 0.03149530683605378]
+
+Information: Source: 62.128.100.45:443, Destination: 192.168.254.100:57328, protocolID: 6
+[0.030267558528428093, 0.9697324414715719]
+
+Predicted class: attack
+Predicted class: slowHeaders
+Information: Source: 192.168.254.100:57329, Destination: 203.177.59.146:443, protocolID: 6
+[0.01904656319290466, 0.10021329915003697, 0.27004804138950483, 0.6101784229490023, 5.136733185513674E-4]
+
+Information: Source: 192.168.254.100:57329, Destination: 203.177.59.146:443, protocolID: 6
+[0.13, 0.87]
+
+Predicted class: normal
+Information: Source: 192.168.254.103:56396, Destination: 239.255.255.250:1900, protocolID: 17
+[0.6, 0.4]
+
+Predicted class: attack
+Predicted class: slowRead
+Information: Source: 192.168.254.100:57330, Destination: 184.87.241.236:443, protocolID: 6
+[0.02625895970481458, 0.14485166491942464, 0.49586968618470906, 0.30737688651025846, 0.025642802680793313]
+
+Information: Source: 192.168.254.100:57330, Destination: 184.87.241.236:443, protocolID: 6
+[0.13337282678351817, 0.8666271732164819]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 192.168.254.100:57333, Destination: 203.177.59.146:443, protocolID: 6
+[0.03975895970481457, 0.5900864363009795, 0.2604484474760626, 0.09167999323821174, 0.018026163279931597]
+
+Information: Source: 192.168.254.100:57333, Destination: 203.177.59.146:443, protocolID: 6
+[0.06957418781792253, 0.9304258121820774]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 192.168.254.100:57331, Destination: 184.87.241.236:443, protocolID: 6
+[0.03530552289771924, 0.46636608308403915, 0.33379059441132186, 0.13083030319941188, 0.03370749640750795]
+
+Information: Source: 192.168.254.100:57331, Destination: 184.87.241.236:443, protocolID: 6
+[0.06882995092832263, 0.9311700490716774]
+
+Predicted class: attack
+Predicted class: udpFlood
+Information: Source: 192.168.254.100:55674, Destination: 192.168.254.254:53, protocolID: 17
+[0.0, 0.0, 0.04, 0.05, 0.91]
+
+Information: Source: 192.168.254.100:55674, Destination: 192.168.254.254:53, protocolID: 17
+[0.42, 0.58]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 54.230.208.84:443, Destination: 192.168.254.100:57055, protocolID: 6
+[0.11915286830815923, 0.66919505110064, 0.07098980417624914, 0.07558081890376152, 0.06508145751119014]
+
+Information: Source: 54.230.208.84:443, Destination: 192.168.254.100:57055, protocolID: 6
+[0.0822075460380358, 0.9177924539619642]
+
+Predicted class: attack
+Predicted class: tcpFlood
+Information: Source: 52.230.83.250:443, Destination: 192.168.254.100:55846, protocolID: 6
+[0.6797280626116685, 0.1333267505310538, 0.02931186637579827, 0.03644407663596809, 0.12118924384551134]
+
+Information: Source: 52.230.83.250:443, Destination: 192.168.254.100:55846, protocolID: 6
+[0.03440512354828319, 0.9655948764517168]
+
+Predicted class: attack
+Predicted class: udpFlood
+Information: Source: 192.168.254.100:55611, Destination: 192.168.254.254:53, protocolID: 17
+[0.0, 0.0, 0.04, 0.05, 0.91]
+
+Information: Source: 192.168.254.100:55611, Destination: 192.168.254.254:53, protocolID: 17
+[0.43, 0.57]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 106.10.249.87:443, Destination: 192.168.254.100:57258, protocolID: 6
+[0.2435736164546784, 0.7149813789719901, 0.0012623271037905187, 0.02002217294900222, 0.020160504520538806]
+
+Information: Source: 106.10.249.87:443, Destination: 192.168.254.100:57258, protocolID: 6
+[0.002633660354399574, 0.9973663396456004]
+
+Predicted class: attack
+Predicted class: slowRead
+Information: Source: 192.168.254.100:57332, Destination: 184.87.241.236:443, protocolID: 6
+[0.02625895970481458, 0.19643329757248584, 0.44643091067450497, 0.2976830089592381, 0.033193823088956576]
+
+Information: Source: 192.168.254.100:57332, Destination: 184.87.241.236:443, protocolID: 6
+[0.06882995092832263, 0.9311700490716774]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 203.177.59.146:443, Destination: 192.168.254.100:57327, protocolID: 6
+[0.10244749663154502, 0.38024211529625906, 0.2032725483816399, 0.24273105372730425, 0.0713067859632517]
+
+Information: Source: 203.177.59.146:443, Destination: 192.168.254.100:57327, protocolID: 6
+[0.06946091374833066, 0.9305390862516693]
+
+Predicted class: attack
+Predicted class: tcpFlood
+Information: Source: 203.177.59.146:443, Destination: 192.168.254.100:57326, protocolID: 6
+[0.6551131183860383, 0.06341693757564444, 0.0780760981761552, 0.06051577845766484, 0.14287806740449732]
+
+Information: Source: 203.177.59.146:443, Destination: 192.168.254.100:57326, protocolID: 6
+[0.2187489117717302, 0.7812510882282697]
+
+Predicted class: normal
+Information: Source: 192.168.254.103:5353, Destination: 224.0.0.251:5353, protocolID: 17
+[0.7, 0.3]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 62.128.100.45:443, Destination: 192.168.254.100:57328, protocolID: 6
+[0.2576421642019406, 0.5159150253199966, 0.11761217443822357, 0.07733532920378569, 0.03149530683605378]
+
+Information: Source: 62.128.100.45:443, Destination: 192.168.254.100:57328, protocolID: 6
+[0.030267558528428093, 0.9697324414715719]
+
+Predicted class: attack
+Predicted class: slowHeaders
+Information: Source: 192.168.254.100:57329, Destination: 203.177.59.146:443, protocolID: 6
+[0.01904656319290466, 0.10021329915003697, 0.27004804138950483, 0.6101784229490023, 5.136733185513674E-4]
+
+Information: Source: 192.168.254.100:57329, Destination: 203.177.59.146:443, protocolID: 6
+[0.13, 0.87]
+
+Predicted class: normal
+Information: Source: 192.168.254.103:56396, Destination: 239.255.255.250:1900, protocolID: 17
+[0.6, 0.4]
+
+Predicted class: attack
+Predicted class: slowRead
+Information: Source: 192.168.254.100:57330, Destination: 184.87.241.236:443, protocolID: 6
+[0.02625895970481458, 0.14485166491942464, 0.49586968618470906, 0.30737688651025846, 0.025642802680793313]
+
+Information: Source: 192.168.254.100:57330, Destination: 184.87.241.236:443, protocolID: 6
+[0.13337282678351817, 0.8666271732164819]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 192.168.254.100:57333, Destination: 203.177.59.146:443, protocolID: 6
+[0.03975895970481457, 0.5900864363009795, 0.2604484474760626, 0.09167999323821174, 0.018026163279931597]
+
+Information: Source: 192.168.254.100:57333, Destination: 203.177.59.146:443, protocolID: 6
+[0.06957418781792253, 0.9304258121820774]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 192.168.254.100:57331, Destination: 184.87.241.236:443, protocolID: 6
+[0.03530552289771924, 0.46636608308403915, 0.33379059441132186, 0.13083030319941188, 0.03370749640750795]
+
+Information: Source: 192.168.254.100:57331, Destination: 184.87.241.236:443, protocolID: 6
+[0.06882995092832263, 0.9311700490716774]
+
+Predicted class: attack
+Predicted class: udpFlood
+Information: Source: 192.168.254.100:55674, Destination: 192.168.254.254:53, protocolID: 17
+[0.0, 0.0, 0.04, 0.05, 0.91]
+
+Information: Source: 192.168.254.100:55674, Destination: 192.168.254.254:53, protocolID: 17
+[0.42, 0.58]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 54.230.208.84:443, Destination: 192.168.254.100:57055, protocolID: 6
+[0.11915286830815923, 0.66919505110064, 0.07098980417624914, 0.07558081890376152, 0.06508145751119014]
+
+Information: Source: 54.230.208.84:443, Destination: 192.168.254.100:57055, protocolID: 6
+[0.0822075460380358, 0.9177924539619642]
+
+Predicted class: attack
+Predicted class: tcpFlood
+Information: Source: 52.230.83.250:443, Destination: 192.168.254.100:55846, protocolID: 6
+[0.6797280626116685, 0.1333267505310538, 0.02931186637579827, 0.03644407663596809, 0.12118924384551134]
+
+Information: Source: 52.230.83.250:443, Destination: 192.168.254.100:55846, protocolID: 6
+[0.03440512354828319, 0.9655948764517168]
+
+Predicted class: attack
+Predicted class: udpFlood
+Information: Source: 192.168.254.100:55611, Destination: 192.168.254.254:53, protocolID: 17
+[0.0, 0.0, 0.04, 0.05, 0.91]
+
+Information: Source: 192.168.254.100:55611, Destination: 192.168.254.254:53, protocolID: 17
+[0.43, 0.57]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 106.10.249.87:443, Destination: 192.168.254.100:57258, protocolID: 6
+[0.2435736164546784, 0.7149813789719901, 0.0012623271037905187, 0.02002217294900222, 0.020160504520538806]
+
+Information: Source: 106.10.249.87:443, Destination: 192.168.254.100:57258, protocolID: 6
+[0.002633660354399574, 0.9973663396456004]
+
+Predicted class: attack
+Predicted class: slowRead
+Information: Source: 192.168.254.100:57332, Destination: 184.87.241.236:443, protocolID: 6
+[0.02625895970481458, 0.19643329757248584, 0.44643091067450497, 0.2976830089592381, 0.033193823088956576]
+
+Information: Source: 192.168.254.100:57332, Destination: 184.87.241.236:443, protocolID: 6
+[0.06882995092832263, 0.9311700490716774]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 203.177.59.146:443, Destination: 192.168.254.100:57327, protocolID: 6
+[0.10244749663154502, 0.38024211529625906, 0.2032725483816399, 0.24273105372730425, 0.0713067859632517]
+
+Information: Source: 203.177.59.146:443, Destination: 192.168.254.100:57327, protocolID: 6
+[0.06946091374833066, 0.9305390862516693]
+
+Predicted class: attack
+Predicted class: tcpFlood
+Information: Source: 203.177.59.146:443, Destination: 192.168.254.100:57326, protocolID: 6
+[0.6551131183860383, 0.06341693757564444, 0.0780760981761552, 0.06051577845766484, 0.14287806740449732]
+
+Information: Source: 203.177.59.146:443, Destination: 192.168.254.100:57326, protocolID: 6
+[0.2187489117717302, 0.7812510882282697]
+
+Predicted class: normal
+Information: Source: 192.168.254.103:5353, Destination: 224.0.0.251:5353, protocolID: 17
+[0.7, 0.3]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 62.128.100.45:443, Destination: 192.168.254.100:57328, protocolID: 6
+[0.2576421642019406, 0.5159150253199966, 0.11761217443822357, 0.07733532920378569, 0.03149530683605378]
+
+Information: Source: 62.128.100.45:443, Destination: 192.168.254.100:57328, protocolID: 6
+[0.030267558528428093, 0.9697324414715719]
+
+Predicted class: attack
+Predicted class: slowHeaders
+Information: Source: 192.168.254.100:57329, Destination: 203.177.59.146:443, protocolID: 6
+[0.01904656319290466, 0.10021329915003697, 0.27004804138950483, 0.6101784229490023, 5.136733185513674E-4]
+
+Information: Source: 192.168.254.100:57329, Destination: 203.177.59.146:443, protocolID: 6
+[0.13, 0.87]
+
+Predicted class: normal
+Information: Source: 192.168.254.103:56396, Destination: 239.255.255.250:1900, protocolID: 17
+[0.6, 0.4]
+
+Predicted class: attack
+Predicted class: slowRead
+Information: Source: 192.168.254.100:57330, Destination: 184.87.241.236:443, protocolID: 6
+[0.02625895970481458, 0.14485166491942464, 0.49586968618470906, 0.30737688651025846, 0.025642802680793313]
+
+Information: Source: 192.168.254.100:57330, Destination: 184.87.241.236:443, protocolID: 6
+[0.13337282678351817, 0.8666271732164819]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 192.168.254.100:57333, Destination: 203.177.59.146:443, protocolID: 6
+[0.03975895970481457, 0.5900864363009795, 0.2604484474760626, 0.09167999323821174, 0.018026163279931597]
+
+Information: Source: 192.168.254.100:57333, Destination: 203.177.59.146:443, protocolID: 6
+[0.06957418781792253, 0.9304258121820774]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 192.168.254.100:57331, Destination: 184.87.241.236:443, protocolID: 6
+[0.03530552289771924, 0.46636608308403915, 0.33379059441132186, 0.13083030319941188, 0.03370749640750795]
+
+Information: Source: 192.168.254.100:57331, Destination: 184.87.241.236:443, protocolID: 6
+[0.06882995092832263, 0.9311700490716774]
+
+Predicted class: attack
+Predicted class: udpFlood
+Information: Source: 192.168.254.100:55674, Destination: 192.168.254.254:53, protocolID: 17
+[0.0, 0.0, 0.04, 0.05, 0.91]
+
+Information: Source: 192.168.254.100:55674, Destination: 192.168.254.254:53, protocolID: 17
+[0.42, 0.58]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 54.230.208.84:443, Destination: 192.168.254.100:57055, protocolID: 6
+[0.11915286830815923, 0.66919505110064, 0.07098980417624914, 0.07558081890376152, 0.06508145751119014]
+
+Information: Source: 54.230.208.84:443, Destination: 192.168.254.100:57055, protocolID: 6
+[0.0822075460380358, 0.9177924539619642]
+
+Predicted class: attack
+Predicted class: tcpFlood
+Information: Source: 52.230.83.250:443, Destination: 192.168.254.100:55846, protocolID: 6
+[0.6797280626116685, 0.1333267505310538, 0.02931186637579827, 0.03644407663596809, 0.12118924384551134]
+
+Information: Source: 52.230.83.250:443, Destination: 192.168.254.100:55846, protocolID: 6
+[0.03440512354828319, 0.9655948764517168]
+
+Predicted class: attack
+Predicted class: udpFlood
+Information: Source: 192.168.254.100:55611, Destination: 192.168.254.254:53, protocolID: 17
+[0.0, 0.0, 0.04, 0.05, 0.91]
+
+Information: Source: 192.168.254.100:55611, Destination: 192.168.254.254:53, protocolID: 17
+[0.43, 0.57]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 106.10.249.87:443, Destination: 192.168.254.100:57258, protocolID: 6
+[0.2435736164546784, 0.7149813789719901, 0.0012623271037905187, 0.02002217294900222, 0.020160504520538806]
+
+Information: Source: 106.10.249.87:443, Destination: 192.168.254.100:57258, protocolID: 6
+[0.002633660354399574, 0.9973663396456004]
+
+Predicted class: attack
+Predicted class: slowRead
+Information: Source: 192.168.254.100:57332, Destination: 184.87.241.236:443, protocolID: 6
+[0.02625895970481458, 0.19643329757248584, 0.44643091067450497, 0.2976830089592381, 0.033193823088956576]
+
+Information: Source: 192.168.254.100:57332, Destination: 184.87.241.236:443, protocolID: 6
+[0.06882995092832263, 0.9311700490716774]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 203.177.59.146:443, Destination: 192.168.254.100:57327, protocolID: 6
+[0.10244749663154502, 0.38024211529625906, 0.2032725483816399, 0.24273105372730425, 0.0713067859632517]
+
+Information: Source: 203.177.59.146:443, Destination: 192.168.254.100:57327, protocolID: 6
+[0.06946091374833066, 0.9305390862516693]
+
+Predicted class: attack
+Predicted class: tcpFlood
+Information: Source: 203.177.59.146:443, Destination: 192.168.254.100:57326, protocolID: 6
+[0.6551131183860383, 0.06341693757564444, 0.0780760981761552, 0.06051577845766484, 0.14287806740449732]
+
+Information: Source: 203.177.59.146:443, Destination: 192.168.254.100:57326, protocolID: 6
+[0.2187489117717302, 0.7812510882282697]
+
+Predicted class: normal
+Information: Source: 192.168.254.103:5353, Destination: 224.0.0.251:5353, protocolID: 17
+[0.7, 0.3]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 62.128.100.45:443, Destination: 192.168.254.100:57328, protocolID: 6
+[0.2576421642019406, 0.5159150253199966, 0.11761217443822357, 0.07733532920378569, 0.03149530683605378]
+
+Information: Source: 62.128.100.45:443, Destination: 192.168.254.100:57328, protocolID: 6
+[0.030267558528428093, 0.9697324414715719]
+
+Predicted class: attack
+Predicted class: slowHeaders
+Information: Source: 192.168.254.100:57329, Destination: 203.177.59.146:443, protocolID: 6
+[0.01904656319290466, 0.10021329915003697, 0.27004804138950483, 0.6101784229490023, 5.136733185513674E-4]
+
+Information: Source: 192.168.254.100:57329, Destination: 203.177.59.146:443, protocolID: 6
+[0.13, 0.87]
+
+Predicted class: normal
+Information: Source: 192.168.254.103:56396, Destination: 239.255.255.250:1900, protocolID: 17
+[0.6, 0.4]
+
+Predicted class: attack
+Predicted class: slowRead
+Information: Source: 192.168.254.100:57330, Destination: 184.87.241.236:443, protocolID: 6
+[0.02625895970481458, 0.14485166491942464, 0.49586968618470906, 0.30737688651025846, 0.025642802680793313]
+
+Information: Source: 192.168.254.100:57330, Destination: 184.87.241.236:443, protocolID: 6
+[0.13337282678351817, 0.8666271732164819]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 192.168.254.100:57333, Destination: 203.177.59.146:443, protocolID: 6
+[0.03975895970481457, 0.5900864363009795, 0.2604484474760626, 0.09167999323821174, 0.018026163279931597]
+
+Information: Source: 192.168.254.100:57333, Destination: 203.177.59.146:443, protocolID: 6
+[0.06957418781792253, 0.9304258121820774]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 192.168.254.100:57331, Destination: 184.87.241.236:443, protocolID: 6
+[0.03530552289771924, 0.46636608308403915, 0.33379059441132186, 0.13083030319941188, 0.03370749640750795]
+
+Information: Source: 192.168.254.100:57331, Destination: 184.87.241.236:443, protocolID: 6
+[0.06882995092832263, 0.9311700490716774]
+
+Predicted class: attack
+Predicted class: udpFlood
+Information: Source: 192.168.254.100:55674, Destination: 192.168.254.254:53, protocolID: 17
+[0.0, 0.0, 0.04, 0.05, 0.91]
+
+Information: Source: 192.168.254.100:55674, Destination: 192.168.254.254:53, protocolID: 17
+[0.42, 0.58]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 54.230.208.84:443, Destination: 192.168.254.100:57055, protocolID: 6
+[0.11915286830815923, 0.66919505110064, 0.07098980417624914, 0.07558081890376152, 0.06508145751119014]
+
+Information: Source: 54.230.208.84:443, Destination: 192.168.254.100:57055, protocolID: 6
+[0.0822075460380358, 0.9177924539619642]
+
+Predicted class: attack
+Predicted class: tcpFlood
+Information: Source: 52.230.83.250:443, Destination: 192.168.254.100:55846, protocolID: 6
+[0.6797280626116685, 0.1333267505310538, 0.02931186637579827, 0.03644407663596809, 0.12118924384551134]
+
+Information: Source: 52.230.83.250:443, Destination: 192.168.254.100:55846, protocolID: 6
+[0.03440512354828319, 0.9655948764517168]
+
+Predicted class: attack
+Predicted class: udpFlood
+Information: Source: 192.168.254.100:55611, Destination: 192.168.254.254:53, protocolID: 17
+[0.0, 0.0, 0.04, 0.05, 0.91]
+
+Information: Source: 192.168.254.100:55611, Destination: 192.168.254.254:53, protocolID: 17
+[0.43, 0.57]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 106.10.249.87:443, Destination: 192.168.254.100:57258, protocolID: 6
+[0.2435736164546784, 0.7149813789719901, 0.0012623271037905187, 0.02002217294900222, 0.020160504520538806]
+
+Information: Source: 106.10.249.87:443, Destination: 192.168.254.100:57258, protocolID: 6
+[0.002633660354399574, 0.9973663396456004]
+
+Predicted class: attack
+Predicted class: slowRead
+Information: Source: 192.168.254.100:57332, Destination: 184.87.241.236:443, protocolID: 6
+[0.02625895970481458, 0.19643329757248584, 0.44643091067450497, 0.2976830089592381, 0.033193823088956576]
+
+Information: Source: 192.168.254.100:57332, Destination: 184.87.241.236:443, protocolID: 6
+[0.06882995092832263, 0.9311700490716774]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 203.177.59.146:443, Destination: 192.168.254.100:57327, protocolID: 6
+[0.10244749663154502, 0.38024211529625906, 0.2032725483816399, 0.24273105372730425, 0.0713067859632517]
+
+Information: Source: 203.177.59.146:443, Destination: 192.168.254.100:57327, protocolID: 6
+[0.06946091374833066, 0.9305390862516693]
+
+Predicted class: attack
+Predicted class: tcpFlood
+Information: Source: 203.177.59.146:443, Destination: 192.168.254.100:57326, protocolID: 6
+[0.6551131183860383, 0.06341693757564444, 0.0780760981761552, 0.06051577845766484, 0.14287806740449732]
+
+Information: Source: 203.177.59.146:443, Destination: 192.168.254.100:57326, protocolID: 6
+[0.2187489117717302, 0.7812510882282697]
+
+Predicted class: normal
+Information: Source: 192.168.254.103:5353, Destination: 224.0.0.251:5353, protocolID: 17
+[0.7, 0.3]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 62.128.100.45:443, Destination: 192.168.254.100:57328, protocolID: 6
+[0.2576421642019406, 0.5159150253199966, 0.11761217443822357, 0.07733532920378569, 0.03149530683605378]
+
+Information: Source: 62.128.100.45:443, Destination: 192.168.254.100:57328, protocolID: 6
+[0.030267558528428093, 0.9697324414715719]
+
+Predicted class: attack
+Predicted class: slowHeaders
+Information: Source: 192.168.254.100:57329, Destination: 203.177.59.146:443, protocolID: 6
+[0.01904656319290466, 0.10021329915003697, 0.27004804138950483, 0.6101784229490023, 5.136733185513674E-4]
+
+Information: Source: 192.168.254.100:57329, Destination: 203.177.59.146:443, protocolID: 6
+[0.13, 0.87]
+
+Predicted class: normal
+Information: Source: 192.168.254.103:56396, Destination: 239.255.255.250:1900, protocolID: 17
+[0.6, 0.4]
+
+Predicted class: attack
+Predicted class: slowRead
+Information: Source: 192.168.254.100:57330, Destination: 184.87.241.236:443, protocolID: 6
+[0.02625895970481458, 0.14485166491942464, 0.49586968618470906, 0.30737688651025846, 0.025642802680793313]
+
+Information: Source: 192.168.254.100:57330, Destination: 184.87.241.236:443, protocolID: 6
+[0.13337282678351817, 0.8666271732164819]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 192.168.254.100:57333, Destination: 203.177.59.146:443, protocolID: 6
+[0.03975895970481457, 0.5900864363009795, 0.2604484474760626, 0.09167999323821174, 0.018026163279931597]
+
+Information: Source: 192.168.254.100:57333, Destination: 203.177.59.146:443, protocolID: 6
+[0.06957418781792253, 0.9304258121820774]
+
+Predicted class: attack
+Predicted class: httpFlood
+Information: Source: 192.168.254.100:57331, Destination: 184.87.241.236:443, protocolID: 6
+[0.03530552289771924, 0.46636608308403915, 0.33379059441132186, 0.13083030319941188, 0.03370749640750795]
+
+Information: Source: 192.168.254.100:57331, Destination: 184.87.241.236:443, protocolID: 6
+[0.06882995092832263, 0.9311700490716774]
+
+Predicted class: attack
+Predicted class: udpFlood
+Information: Source: 192.168.254.100:55674, Destination: 192.168.254.254:53, protocolID: 17
+[0.0, 0.0, 0.04, 0.05, 0.91]
+
+Information: Source: 192.168.254.100:55674, Destination: 192.168.254.254:53, protocolID: 17
+[0.42, 0.58]
+
+
+Total class distribution: (Hybrid isAttack)
+Index 0: normal: 	       20.3889%
+Index 1: attack: 	       79.6111%
+
+Total class distribution: (Hybrid DDoS type)
+Index 0: tcpFlood: 	       16.9560%
+Index 1: httpFlood: 	       30.5771%
+Index 2: slowRead: 	       18.3624%
+Index 3: slowHeaders: 	       15.7721%
+Index 4: udpFlood: 	       18.3323%
