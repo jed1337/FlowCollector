@@ -9,9 +9,9 @@ rem Source2:	https://stackoverflow.com/questions/3973824/windows-bat-file-option
 SET interface="Wi-Fi"
 SET duration=60
 SET systemType="single"
-SET singleModelPath="Single RF .model"
-SET hybridModelPath1="Hybrid isAttack RF .model"
-SET hybridModelPath2="Hybrid DDoS Type RF .model"
+SET singleModelPath="Single_RF_.model"
+SET hybridModelPath1="Hybrid_isAttack_RF_.model"
+SET hybridModelPath2="Hybrid_DDoS_Type_RF_.model"
 
 :loop
 SET arg=%1
@@ -183,21 +183,20 @@ rem Functions
 		echo Checking if all requirements are present
 		call :CHECK_PATH "Scripts\main.py"
 		call :CHECK_PATH "model\LiveTest.jar"
-		call :CHECK_PATH "model\RF .model"
 		call :CHECK_PROGRAM python
 		call :CHECK_PROGRAM tshark
 		call :CHECK_PROGRAM java
 		call :CHECK_PROGRAM fsutil
-		call :CHECK_FAIL
 		call :NEW_LINE
 		goto:EOF
 
 	:CHECK_PATH
+		echo Checking if %1 exists
 		rem If the current file doesn't exist, exit code 1
 		rem Else goto:eof
-
 		if not exist %1 (
-			exit /b 3
+			echo %1 doesn't exist, exiting
+			call :FAIL
 		)
 		goto:EOF
 
@@ -208,16 +207,13 @@ rem Functions
 			echo Found %1
 		) || (
 			echo The program %1 cannot be found
-			exit /b 3
+			call :FAIL
 		)
 		goto:EOF
 
-	:CHECK_FAIL
-		rem %ERRORLEVEL% will be equal to zero if there are no errors
-		if NOT ["%ERRORLEVEL%"]==["0"] (
-			echo Some or all operations did not execute successfully.
-			echo Error level is %ERRORLEVEL%
-			echo Terminating execution
-		   pause
-		   exit
-		)
+	:FAIL
+		call :NEW_LINE
+		echo Some or all operations did not execute successfully.
+		echo Terminating execution
+	   pause
+	   exit 1

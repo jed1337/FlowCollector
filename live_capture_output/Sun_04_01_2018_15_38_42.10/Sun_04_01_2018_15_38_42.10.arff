@@ -1,0 +1,44 @@
+@relation ,?
+@attribute src_ip string
+@attribute src_port numeric
+@attribute dst_ip string
+@attribute dst_port numeric
+@attribute proto_number numeric
+@attribute duration numeric
+@attribute cof {N/A,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127}
+@attribute total_f_packets numeric
+@attribute total_b_packets numeric
+@attribute total_f_bytes numeric
+@attribute total_b_bytes numeric
+@attribute pps_f numeric
+@attribute pps_b numeric
+@attribute bps_f numeric
+@attribute bps_b numeric
+@attribute rfb_packets numeric
+@attribute rfb_bytes numeric
+@attribute min_f_pkt numeric
+@attribute mean_f_pkt numeric
+@attribute max_f_pkt numeric
+@attribute std_f_pkt numeric
+@attribute min_b_pkt numeric
+@attribute mean_b_pkt numeric
+@attribute max_b_pkt numeric
+@attribute std_b_pkt numeric
+@attribute min_f_time numeric
+@attribute mean_f_time numeric
+@attribute max_f_time numeric
+@attribute std_f_time numeric
+@attribute min_b_time numeric
+@attribute mean_b_time numeric
+@attribute max_b_time numeric
+@attribute std_b_time numeric
+@attribute psh_f_cnt numeric
+@attribute urg_f_cnt numeric
+@attribute psh_b_cnt numeric
+@attribute urg_b_cnt numeric
+@attribute isAttack {tcpFlood,normal,httpFlood,slowRead,slowHeaders,udpFlood}
+@data
+% ..\live_capture_input\Sun_04_01_2018_15_38_42.10.pcapng
+192.168.254.103,50178,239.255.255.250,1900,17,0.20467901229858398,N/A,3,0,459,0,14.65709633005081,0.0,2242.5357384977738,0.0,0.0,0.0,153,153.0,153,0.0,0,0,0,0,0.1022500991821289,0.10233950614929199,0.10242891311645508,8.940696716308594e-05,0,0,0,0,-1,-1,-1,-1,?
+172.217.17.67,443,192.168.254.108,33116,6,0.00015282630920410156,17,3,1,156,52,273541.5652173913,0.0,14224161.391304348,0.0,3.0,3.0,52,52.0,52,0.0,52,52.0,52,0.0,1.9073486328125e-06,5.4836273193359375e-06,9.059906005859375e-06,3.5762786865234375e-06,0,0,0,0,0,0,0,0,?
+192.168.254.104,65390,152.19.134.41,80,6,0.35144805908203125,24,2,3,515,3995,5.690741343753392,599186.2857142857,1465.3658960164985,797916403.8095238,0.6666666666666666,0.12891113892365458,40,257.5,475,217.5,1095,1331.6666666666667,1450,167.34860488081623,0.35144805908203125,0.35144805908203125,0.35144805908203125,0.0,1.9073486328125e-06,2.5033950805664062e-06,3.0994415283203125e-06,5.960464477539062e-07,1,0,1,0,?
