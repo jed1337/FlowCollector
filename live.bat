@@ -1,4 +1,8 @@
 @echo off
+rem Since Set won't work when used in the same code block
+rem Source: https://stackoverflow.com/questions/9681863/windows-batch-variables-wont-SET
+	SETlocal enabledelayedexpansion
+
 rem Source:		https://stackoverflow.com/questions/15143259/adding-flags-to-a-batch-script
 rem Source2:	https://stackoverflow.com/questions/3973824/windows-bat-file-optional-argument-parsing
 
@@ -10,12 +14,17 @@ SET hybridModelPath1="Hybrid isAttack RF .model"
 SET hybridModelPath2="Hybrid DDoS Type RF .model"
 
 :loop
-set arg=%1
+SET arg=%1
+SET validArg=0
+
 if defined arg (
+	rem echo Arg1 is %1
 	if "%1"=="-h" (
+		SET validArg=1
 		call :help
 	)
 	if "%1"=="-i" (
+		SET validArg=1
 		SET interface=%2
 
 		rem SHIFT moves the arguments back
@@ -23,16 +32,20 @@ if defined arg (
 		rem We move it twice since this takes 2 parameters: "-i" and "<value>"
 			SHIFT & SHIFT
 	)
+
 	if "%1"=="-d" (
+		SET validArg=1
 		SET duration=%2
 		SHIFT & SHIFT
 	)
 	if "%1"=="--single" (
+		SET validArg=1
 		SET systemType="single"
 		SET singleModelPath=%2
 		SHIFT & SHIFT
 	)
 	if "%1"=="--hybrid" (
+		SET validArg=1
 		SET systemType="hybrid"
 		SET hybridModelPath1=%2
 		SET hybridModelPath2=%3
@@ -40,11 +53,20 @@ if defined arg (
 		rem We move it trice since this takes 3 parameters
 			SHIFT & SHIFT & SHIFT
 	)
+
+	rem We use !...! since SET won't work. Check source in SETlocal enabledelayedexpansion
+		if "!validArg!"=="0" (
+			echo Invalid argument '%1'
+			call :NEW_LINE
+			call :HELP
+			exit 0
+		)
  GOTO :loop
 )
 call :OUTPUT_VARIABLES
 
 call :CHECK_ALL_PROGRAMS_AND_PATHS
+
 rem "rem" means to treat the following line as a comment
 
 rem Assign the result of %date% and %time% functions to variable date_time
@@ -101,7 +123,7 @@ rem Start classifying based on the flow
 	call :NEW_LINE
 	echo Classifying the extracted features using %systemType%
 
-	set date_time_log="..\%live_capture_input_dir%\%date_time%.log"
+	SET date_time_log="..\%live_capture_input_dir%\%date_time%.log"
 	echo Writing output to %date_time_log%
 
 	if %systemType% == "single" (
